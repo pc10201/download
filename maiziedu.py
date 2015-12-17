@@ -15,8 +15,8 @@ download_exe = r'd:\Program Files\aria2\aria2c.exe'
 # 视频的保存位置
 download_dir = ur'm:\maiziedu'
 # 生成的bat脚本路径
-bat_file = r's:\urls.bat'
-# 此处为课程id列表,例如http://maiziedu.com/course/python/310-8203/的课程id为310
+urls_bat = r's:\urls.bat'
+# 此处为课程id列表,例如http://maiziedu.com/course/python/310-8203/的课程id为310，依次类推
 course_id_list = [631, 622]
 
 
@@ -49,7 +49,7 @@ result = []
 for course_id in course_id_list:
     result = result + download(course_id)
 
-bat_file = io.open(bat_file, 'w+', encoding='gbk')
+bat_file = io.open(urls_bat, 'w+', encoding='gbk')
 for cmd in result:
     bat_file.writelines(cmd + '\r\n')
 bat_file.close()
